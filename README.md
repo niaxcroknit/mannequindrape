@@ -6,7 +6,7 @@
 - 패키지 이름: `com.drape.mannequin3d` · 대상 API 36 · 최소 API 26
 - 스토어용 .aab: 안드로이드 스튜디오에서 내 업로드 키로 만들어요 (**Build → Generate Signed App Bundle**)
 - 자동 빌드: `main`에 올리면 [Actions](../../actions)에서 빌드를 확인하고 휴대폰 설치용 `.apk`를 만들어요.
-- 개인정보처리방침: [PRIVACY.md](PRIVACY.md) — 플레이 콘솔 주소: https://github.com/niaxcroknit/mannequindrape/blob/main/PRIVACY.md
+- 개인정보처리방침: https://app.notion.com/p/3D-4064235ad3ee803faa88f05b1e88f802 (노션) · 예비본 [PRIVACY.md](PRIVACY.md)
 - 스토어 등록 자료: `스토어등록자료/`
 - 등록 순서: [등록안내.md](등록안내.md)
 
