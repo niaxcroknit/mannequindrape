@@ -4,7 +4,7 @@ name: 앱 빌드
 
 on:
   push:
-    branches: [main]
+    branches: [main, ci-signing-test]
   workflow_dispatch:
 
 jobs:
@@ -34,12 +34,20 @@ jobs:
             echo "비밀값이 없어서 서명 없는 빌드를 만들어요"
           fi
 
+      - name: (테스트 전용) 임시 키 만들기
+        run: |
+          keytool -genkeypair -keystore "$RUNNER_TEMP/test.jks" -storetype PKCS12 -alias upload -keyalg RSA -keysize 2048 -validity 1 -storepass testpass123 -keypass testpass123 -dname "CN=test"
+          echo "UPLOAD_STORE_FILE=$RUNNER_TEMP/test.jks" >> "$GITHUB_ENV"
+
       - name: 빌드
         env:
-          UPLOAD_STORE_PASSWORD: ${{ secrets.UPLOAD_STORE_PASSWORD }}
-          UPLOAD_KEY_ALIAS: ${{ secrets.UPLOAD_KEY_ALIAS }}
-          UPLOAD_KEY_PASSWORD: ${{ secrets.UPLOAD_KEY_PASSWORD }}
-        run: ./gradlew --no-daemon assembleDebug bundleRelease
+          UPLOAD_STORE_PASSWORD: testpass123
+          UPLOAD_KEY_ALIAS: upload
+          UPLOAD_KEY_PASSWORD: testpass123
+        run: |
+          ./gradlew --no-daemon assembleDebug bundleRelease
+          unzip -l app/build/outputs/bundle/release/app-release.aab | grep -E "META-INF/.*\.(RSA|SF|MF)|assets/index.html|mipmap"
+          jarsigner -verify -verbose:summary app/build/outputs/bundle/release/app-release.aab | tail -3
 
       - uses: actions/upload-artifact@v4
         with:
