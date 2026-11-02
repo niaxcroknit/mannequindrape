@@ -6,8 +6,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
-// 업로드 키 정보: 내 컴퓨터에서는 keystore.properties 파일에서, GitHub 자동 빌드에서는 저장소 비밀값에서 읽어요.
-// 두 곳 다 없으면 서명 없는 빌드를 만들어요 (실행 확인용으로는 문제없어요).
+// (선택) 맨 위 폴더에 keystore.properties가 있으면 그 키로 release 빌드를 서명해요.
+// 없어도 돼요: 안드로이드 스튜디오의 Build → Generate Signed App Bundle에서 키를 고르면 돼요.
 val keystoreProps = Properties().apply {
     val f = rootProject.file("keystore.properties")
     if (f.exists()) f.inputStream().use { load(it) }
