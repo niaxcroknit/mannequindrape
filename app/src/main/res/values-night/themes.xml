@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 휴대폰이 다크 모드면 웹 화면도 다크 모드로 그려져요 -->
+    <style name="Theme.MannequinDrape" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/page_bg</item>
+    </style>
+</resources>

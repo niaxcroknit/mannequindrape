@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 웹 화면 배경과 같은 색이라 켤 때 하얗게 번쩍이지 않아요 -->
+    <color name="page_bg">#ECEEE9</color>
+</resources>
