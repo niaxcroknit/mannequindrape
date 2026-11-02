@@ -50,4 +50,4 @@
 앱 카테고리: 라이프스타일 (쇼핑도 괜찮아요)
 태그: 패션, 쇼핑 도우미 (콘솔이 추천하는 목록에서 고르세요)
 연락처 이메일: kimseohappiness@gmail.com
-개인정보처리방침 URL: https://niaxcroknit.github.io/mannequindrape/privacy.html
+개인정보처리방침 URL: https://github.com/niaxcroknit/mannequindrape/blob/main/PRIVACY.md
